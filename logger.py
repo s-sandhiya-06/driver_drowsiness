@@ -1,9 +1,8 @@
-import datetime
+import logging
 
-def log_event(state, logfile="drowsiness.log"):
-    """
-    Log driver state with timestamp.
-    """
-    with open(logfile, "a") as f:
-        f.write(f"{datetime.datetime.now()} - {state}\n")
+logging.basicConfig(filename="driver.log", level=logging.INFO)
 
+class Logger:
+    @staticmethod
+    def log(event):
+        logging.info(event)

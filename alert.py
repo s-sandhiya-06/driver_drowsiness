@@ -1,14 +1,16 @@
 import winsound
 
-def trigger_alert(state):
-    """
-    Trigger an audio alert if driver is drowsy.
-    """
-    if state == "drowsy":
-        print("⚠️ ALERT: Driver Drowsy!")
-        try:
-            # Beep: frequency=1000Hz, duration=500ms
-            winsound.Beep(1000, 500)
-        except RuntimeError:
-            print("Beep not supported on this system.")
+class AlertSystem:
+    def soft_alert(self):
+        print("⚠ Soft Alert: Please wake up!")
+        winsound.Beep(1000, 300)
 
+    def loud_alert(self):
+        print("🚨 LOUD ALERT: WAKE UP NOW!")
+        winsound.Beep(1500, 700)
+
+    def notify_contact(self):
+        print("📲 Notifying emergency contact... (simulation)")
+
+    def reset_alerts(self):
+        print("✅ Alerts reset, driver is awake.")

@@ -1,22 +1,16 @@
-total_frames = 0
-drowsy_count = 0
+class Metrics:
+    def __init__(self):
+        self.frames_processed = 0
+        self.alerts_triggered = 0
 
-def update_metrics(state):
-    """
-    Update counters based on driver state.
-    """
-    global total_frames, drowsy_count
-    total_frames += 1
-    if state == "drowsy":
-        drowsy_count += 1
+    def update(self):
+        self.frames_processed += 1
 
-def report_metrics():
-    """
-    Print summary at end of run.
-    """
-    print("\n=== Metrics Report ===")
-    print(f"Total Frames Processed: {total_frames}")
-    print(f"Drowsy Alerts: {drowsy_count}")
-    if total_frames > 0:
-        print(f"Percentage Drowsy: {(drowsy_count/total_frames)*100:.2f}%")
+    def alert(self):
+        self.alerts_triggered += 1
 
+    def report(self):
+        return {
+            "frames_processed": self.frames_processed,
+            "alerts_triggered": self.alerts_triggered
+        }
