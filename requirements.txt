@@ -1,0 +1,8 @@
+opencv-python
+mediapipe
+numpy
+scipy
+pyyaml
+imutils
+flask 
+requests
